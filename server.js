@@ -56,6 +56,15 @@ app.post("/confirm/issuer", function (req, res) {
   });
 });
 
+app.post("/confirm/certificate", function (req, res) {
+  sendMail({
+    subject: "New certificate for: xxxx",
+    text: "Hi, You can now view your certificate on LINK",
+    res,
+    req
+  });
+});
+
 app.listen(app.get("port"), function () {
   console.log("Server started on: " + app.get("port"));
 });
