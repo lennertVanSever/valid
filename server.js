@@ -11,7 +11,7 @@ const sendMail = async ({ subject, text, res, req }) => {
   try {
     const msg = {
       to: req.body.event.data.new.email,
-      from: "lennert_vansever@hotmail.be", // Use the email address or domain you verified above
+      from: "valid.lennertvansever.dev", // Use the email address or domain you verified above
       subject,
       text
     };
