@@ -11,7 +11,7 @@ const sendMail = async ({ subject, text, res, req }) => {
   try {
     const msg = {
       to: req.body.event.data.new.email,
-      from: "valid@lennertvansever.dev", // Use the email address or domain you verified above
+      from: "valid@sendgrid.net", // Use the email address or domain you verified above
       subject,
       text,
       html: '<strong>and easy to do anywhere, even with Node.js</strong>',
