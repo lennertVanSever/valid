@@ -7,11 +7,15 @@
   "description": "A simple Node app built on Express, instantly up and running.",
   "main": "server.js",
   "scripts": {
+    "test": "jest",
     "start": "node server.js"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.4.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "@sendgrid/mail": "^7.4.0"
+    "jest": "^26.6.3",
+    "sib-api-v3-sdk": "^8.0.2"
   },
   "engines": {
     "node": "12.x"
@@ -24,5 +28,13 @@
     "node",
     "glitch",
     "express"
-  ]
+  ],
+  "devDependencies": {
+    "husky": "^4.3.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
+  }
 }
