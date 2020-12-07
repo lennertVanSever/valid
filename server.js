@@ -13,7 +13,8 @@ const sendMail = async ({ subject, text, res, req }) => {
       to: req.body.event.data.new.email,
       from: "valid@lennertvansever.dev", // Use the email address or domain you verified above
       subject,
-      text
+      text,
+      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
     };
 
     const emailSentResponse = await sgMail.send(msg);
