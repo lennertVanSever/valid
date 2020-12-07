@@ -15,8 +15,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.post("/confirm/administrator", function (req, res) {
-  sendEmail({
+app.post("/confirm/administrator", async (req, res) => {
+  const response = await sendEmail({
     subject: "Nieuwe xxx administrator",
     htmlContent: getEmailTemplate({
       greetings: 'Beste,',
@@ -26,10 +26,11 @@ app.post("/confirm/administrator", function (req, res) {
     }),
     to: getReceivingAddressFromRequest(req)
   });
+  res.json({ response });
 });
 
 app.post("/confirm/issuer", function (req, res) {
-  sendEmail({
+  const response = await sendEmail({
     subject: "Nieuwe xxx issuer",
     htmlContent: getEmailTemplate({
       greetings: 'Beste,',
@@ -39,10 +40,11 @@ app.post("/confirm/issuer", function (req, res) {
     }),
     to: getReceivingAddressFromRequest(req)
   });
+  res.json({ response });
 });
 
 app.post("/confirm/certificate", function (req, res) {
-  sendEmail({
+  const response = await sendEmail({
     subject: "Nieuwe xxx certificaat",
     htmlContent: getEmailTemplate({
       greetings: 'Beste,',
@@ -52,6 +54,7 @@ app.post("/confirm/certificate", function (req, res) {
     }),
     to: getReceivingAddressFromRequest(req)
   });
+  res.json({ response });
 });
 
 app.listen(app.get("port"), function () {

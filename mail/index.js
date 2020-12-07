@@ -23,6 +23,7 @@ const sendEmail = async ({ subject, htmlContent, sender = { name: 'valid', email
     return `API called successfully. Returned data: ${JSON.stringify(data)}`;
   } catch(error) {
     console.log(error);
+    return error;
   }
 }
 
