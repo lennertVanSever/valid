@@ -29,7 +29,7 @@ app.post("/confirm/administrator", async (req, res) => {
   res.json({ response });
 });
 
-app.post("/confirm/issuer", function (req, res) {
+app.post("/confirm/issuer", async (req, res) => {
   const response = await sendEmail({
     subject: "Nieuwe xxx issuer",
     htmlContent: getEmailTemplate({
@@ -43,7 +43,7 @@ app.post("/confirm/issuer", function (req, res) {
   res.json({ response });
 });
 
-app.post("/confirm/certificate", function (req, res) {
+app.post("/confirm/certificate", async (req, res) => {
   const response = await sendEmail({
     subject: "Nieuwe xxx certificaat",
     htmlContent: getEmailTemplate({
